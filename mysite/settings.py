@@ -28,8 +28,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'database',
     'graphene_django',
-    'corsheaders',  #This is to allow the request from tht other websites as we request data from the react running url.
-    # 'mdeditor',
+    'corsheaders',  #This is to allow the request from the other websites as we request data from the react running url.
     'django_summernote'
 ]
 
