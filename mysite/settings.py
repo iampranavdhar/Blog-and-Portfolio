@@ -14,7 +14,7 @@ SECRET_KEY = 'w%)3%2gvdneb+n7x@(cb7!su_fm_#7fuy-#2&up-$1%_bi7d0g'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['api-pranavdhar.herokuapp.com','127.0.0.1']
 
 
 # Application definition
@@ -35,8 +35,8 @@ INSTALLED_APPS = [
 
 CORS_ALLOWED_ORIGINS = [       
     'http://localhost:3000',
-    'http://127.0.0.1:3000',
-    'http://127.0.0.1:8000'
+    'https://pranavdhar.herokuapp.com',
+    'http://pranavdhar.herokuapp.com'
 ]
 
 GRAPHENE = {
@@ -52,6 +52,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'corsheaders.middleware.CorsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'mysite.urls'
@@ -124,6 +125,8 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
 X_FRAME_OPTIONS = 'SAMEORIGIN'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 MEDIA_URL = '/media/'
