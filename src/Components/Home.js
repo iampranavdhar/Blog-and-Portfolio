@@ -18,7 +18,7 @@ function Home() {
                     Web Developer
                 </h1>
                 <div className="home__img">
-                    <img src="assets/myimg.png" alt=""></img>
+                    <img src="assets/home.png" alt=""></img>
                 </div>
             </div>
 
