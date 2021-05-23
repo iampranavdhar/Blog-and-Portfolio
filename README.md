@@ -31,7 +31,7 @@ And then create Heroku apps for deploying so that you can add your urls to the c
 
 Changes that need to be made for getting your data in the website are :
 
-1. Change the myimg.png and myimg2.jpeg in the public/assests folder with the images you want to show in the landing page of the portfolio and change the names in the src of img tags in the Home.js and About.js if the naming is different
+1. Change the home.png and about.jpeg in the public/assests folder with the images you want to show in the landing page of the portfolio and change the names in the src of img tags in the Home.js and About.js if the naming is different
 
 2. Change the title of the page in the index.html in the public folder with your name
 
@@ -84,7 +84,7 @@ Changes that need to be made for getting your data in the website are :
 
 ## Author ✍️
 
-1. [Pranavdhar](https://www.Github.com/iampranavdhar)
+1. <img src="https://avatars.githubusercontent.com/u/73348574?v=4" alt='img' width='40px' height='40px' /> [Pranavdhar](https://www.Github.com/iampranavdhar)
 
 ## Note
 
