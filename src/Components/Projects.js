@@ -22,7 +22,7 @@ function Projects() {
             body: JSON.stringify({query}),
         };
 
-         fetch('http://127.0.0.1:8000/graphql', sendingPost)
+         fetch('https://api-pranavdhar.herokuapp.com/graphql', sendingPost)
             .then(response => response.json())
             .then(data => setProjects(data.data.allProjects));
     },[query])
@@ -34,7 +34,7 @@ function Projects() {
         {projects.map((project) =>
                 <ProjectCard
                     key={project.id}
-                    image={"http://127.0.0.1:8000/media/"+project.image}
+                    image={"https://api-pranavdhar.herokuapp.com/media/"+project.image}
                     description={project.projectDescription}
                     codelink={project.codeLink}
                     demolink={project.demoLink}

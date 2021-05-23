@@ -14,7 +14,7 @@ function BlogPage() {
     //Added that number of blogs as well for taking care of that next button error as we click on beyond blogs number it produces an error.
 
     const description = `${blogpage.body}`;
-    const coverimage = "http://127.0.0.1:8000/media/"+blogpage.coverImage;
+    const coverimage = "https://api-pranavdhar.herokuapp.com/media/"+blogpage.coverImage;
 
 
     // const Component = ({description}) => {

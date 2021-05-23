@@ -35,10 +35,10 @@ const useFetch = () => {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({query}),
         };
-        fetch('http://127.0.0.1:8000/graphql', sendingPost)
+        fetch('https://api-pranavdhar.herokuapp.com/graphql', sendingPost)
             .then(response => response.json())
             .then(data => setBlogpage(data.data.postById));
-        fetch('http://127.0.0.1:8000/graphql', sendingPost)
+        fetch('https://api-pranavdhar.herokuapp.com/graphql', sendingPost)
             .then(response => response.json())
             .then(data => setBlogs(data.data.allPosts));
     },[id,query])
