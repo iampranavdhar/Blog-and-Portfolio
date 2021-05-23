@@ -1,0 +1,74 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
+
+.projectcard-container {
+  position: relative;
+  margin: 30px;
+  border-radius: 10px;
+}
+
+.image {
+  display: block;
+  width: 100%;
+  max-width: 350px;
+  max-height: 360px;
+  min-width: 300px;
+  min-height: 340px;
+  height: auto;
+  border-radius: 20px;
+}
+
+.card-info{
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  border-radius: 10px;
+  transition: all 0.5s ease;
+  background-color: #212121;
+}
+
+.projectcard-container:hover .card-info {
+  opacity: 1;
+  transition: all 0.5s ease;
+}
+
+.text{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: auto;
+}
+
+.project-description{
+  position: absolute;
+  font-size: 25px;
+  top: 50px;
+  padding: 10px;
+  color: #fff;
+  text-align: center;
+}
+
+.buttons{
+  position: absolute;
+  left:auto;
+  right:auto;
+  bottom: 0;
+}
+
+button{
+  margin:10px;
+  height:42px;
+  width: 100px;
+  border-radius: 8px;
+  outline: none;
+  color: #0E2431;
+  font-weight: 900;
+  font-size: 15px;
+  font-family:'Poppins', sans-serif ;
+  cursor: pointer;
+}

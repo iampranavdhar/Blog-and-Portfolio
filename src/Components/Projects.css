@@ -1,0 +1,25 @@
+.projects p{
+    color: #0E2431;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    justify-content: center;
+    font-size: 2rem;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: 600;
+}
+
+.projects-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+    max-width: 1024px;
+    margin: auto;
+}
+
+.projects{
+    width: 100%;
+}

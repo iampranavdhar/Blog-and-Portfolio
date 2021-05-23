@@ -1,0 +1,139 @@
+/*Desktop View*/
+.logo-nav {
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+  justify-content: space-between;
+  max-width: 1024px;
+  margin: 10px auto;
+}
+
+.header{
+    width: 100%;
+    position: fixed;
+    z-index: 100;
+    background-color: #fff;
+    justify-content:space-between;
+    box-shadow: 0 1px 4px rgba(146,161,176,.15);
+    height: 60px;
+}
+
+.logo-nav a{
+  text-decoration: none;
+  color: #0E2431;
+  font-size: 20px;
+}
+
+.nav-options {
+  padding-left: 15px;
+  display: flex;
+  grid-gap: 25px;
+  list-style-type: none;
+}
+
+.nav-options a{
+  text-decoration: none;
+  color: #0E2431;
+  margin-right: 20px;
+}
+
+.nav-options a:hover{
+  color: #e04f62;
+  transition: all 0.5s ease;
+}
+
+.mobile-option {
+  display: none;
+}
+
+.mobile-nav {
+  display: none;
+}
+
+.right-navigations{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.theme-toggle{
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  /*Mobile View */
+  .header{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    position: fixed;
+    background-color: #fff;
+    justify-content:space-between;
+    box-shadow: 0 1px 4px rgba(146,161,176,.15);
+    margin-top: 0;
+  }
+
+  .theme-toggle{
+    display: none;
+    cursor: pointer;
+  }
+
+  .left-logo{
+    position: absolute;
+    left: 10px;
+  }
+  
+  .nav-options {
+    display: flex;
+    width: 50%;
+    height: 100%;
+    position: fixed;
+    padding: 32px;
+    top: 60px;
+    right: -100%;
+    opacity: 0;
+    transition: all 0.5s ease;
+    flex-direction: column;
+    list-style-type: none;
+    grid-gap: 0px;
+    font-weight: 900;
+    border-radius: 30px 0px;
+  }
+
+  .nav-options.active {
+    background: #0E2431;
+    right: 0;
+    opacity: 1;
+    transition: all 0.5s ease;
+    z-index: 1;
+    align-content: center;
+    padding-left: 0px;
+  }
+
+  .nav-options a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 0px;
+  }
+
+  .nav-options a{
+    color: white;
+  }
+
+  .mobile-nav{
+    display: flex;
+    align-items: center;
+  }
+
+  .mobile-menu {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .menu-icon{
+    padding-left: 10px;
+    margin-right: 15px;
+    cursor: pointer;
+  }
+}

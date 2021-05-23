@@ -1,0 +1,27 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
+
+.footer{
+    background-color: #0E2431;
+    color: #fff;
+    text-align: center;
+    font-weight: 700;
+    display: flex;
+    flex-direction: column;
+    margin-top: 60px;
+  }
+.footer-title,.footer-social{
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.footer-copyright{
+      margin: auto;
+}
+
+.footer-icon{
+  font-size: 1.5rem;
+  color: #fff;
+  margin: 0 1rem;
+}
