@@ -65,7 +65,7 @@ body{
 }
 .gif{
   display:${props =>
-  props.theme.mode === 'dark' ? '' : 'none'}
+  props.theme.mode === 'dark' ? '' : ''}
 }
 }
 `
