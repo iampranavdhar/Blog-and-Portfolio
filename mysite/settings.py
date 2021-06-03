@@ -14,7 +14,7 @@ SECRET_KEY = 'w%)3%2gvdneb+n7x@(cb7!su_fm_#7fuy-#2&up-$1%_bi7d0g'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['api-pranavdhar.herokuapp.com','127.0.0.1']
+ALLOWED_HOSTS = ['sushmanthreddy.herokuapp.com','127.0.0.1']
 
 
 # Application definition
@@ -34,8 +34,8 @@ INSTALLED_APPS = [
 
 CORS_ALLOWED_ORIGINS = [       
     'http://localhost:3000',
-    'https://pranavdhar.herokuapp.com',
-    'http://pranavdhar.herokuapp.com'
+    'https://sushmanth.herokuapp.com',
+    'http://sushmanth.herokuapp.com'
 ]
 
 GRAPHENE = {

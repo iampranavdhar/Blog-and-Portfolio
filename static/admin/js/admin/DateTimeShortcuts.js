@@ -266,23 +266,7 @@
             shortcuts_span.appendChild(document.createTextNode('\u00A0|\u00A0'));
             shortcuts_span.appendChild(cal_link);
 
-            // Create calendarbox div.
-            //
-            // Markup looks like:
-            //
-            // <div id="calendarbox3" class="calendarbox module">
-            //     <h2>
-            //           <a href="#" class="link-previous">&lsaquo;</a>
-            //           <a href="#" class="link-next">&rsaquo;</a> February 2003
-            //     </h2>
-            //     <div class="calendar" id="calendarin3">
-            //         <!-- (cal) -->
-            //     </div>
-            //     <div class="calendar-shortcuts">
-            //          <a href="#">Yesterday</a> | <a href="#">Today</a> | <a href="#">Tomorrow</a>
-            //     </div>
-            //     <p class="calendar-cancel"><a href="#">Cancel</a></p>
-            // </div>
+           
             var cal_box = document.createElement('div');
             cal_box.style.display = 'none';
             cal_box.style.position = 'absolute';
@@ -368,16 +352,12 @@
                 }
             }
 
-            // Recalculate the clockbox position
-            // is it left-to-right or right-to-left layout ?
+            
             if (getStyle(document.body, 'direction') !== 'rtl') {
                 cal_box.style.left = findPosX(cal_link) + 17 + 'px';
             }
             else {
-                // since style's width is in em, it'd be tough to calculate
-                // px value of it. let's use an estimated px for now
-                // TODO: IE returns wrong value for findPosX when in rtl mode
-                //       (it returns as it was left aligned), needs to be fixed.
+                
                 cal_box.style.left = findPosX(cal_link) - 180 + 'px';
             }
             cal_box.style.top = Math.max(0, findPosY(cal_link) - 75) + 'px';
@@ -397,7 +377,7 @@
         },
         handleCalendarCallback: function(num) {
             var format = get_format('DATE_INPUT_FORMATS')[0];
-            // the format needs to be escaped a little
+            
             format = format.replace('\\', '\\\\')
                 .replace('\r', '\\r')
                 .replace('\n', '\\n')

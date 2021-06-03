@@ -1,14 +1,9 @@
-/*global SelectBox, interpolate*/
-// Handles related-objects functionality: lookup link for raw_id_fields
-// and Add Another links.
+
 
 (function($) {
     'use strict';
 
-    // IE doesn't accept periods or dashes in the window name, but the element IDs
-    // we use to generate popup window names may contain them, therefore we map them
-    // to allowed characters in a reversible way so that we can locate the correct
-    // element when the popup window is dismissed.
+    
     function id_to_windowname(text) {
         text = text.replace(/\./g, '__dot__');
         text = text.replace(/\-/g, '__dash__');

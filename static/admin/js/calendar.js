@@ -58,17 +58,7 @@ depends on core.js for utility functions like removeChildren or quickElement
             var todayYear = today.getFullYear();
             var todayClass = '';
 
-            // Use UTC functions here because the date field does not contain time
-            // and using the UTC function variants prevent the local time offset
-            // from altering the date, specifically the day field.  For example:
-            //
-            // ```
-            // var x = new Date('2013-10-02');
-            // var day = x.getDate();
-            // ```
-            //
-            // The day variable above will be 1 instead of 2 in, say, US Pacific time
-            // zone.
+            
             var isSelectedMonth = false;
             if (typeof selected !== 'undefined') {
                 isSelectedMonth = (selected.getUTCFullYear() === year && (selected.getUTCMonth() + 1) === month);
@@ -82,7 +72,7 @@ depends on core.js for utility functions like removeChildren or quickElement
             quickElement('caption', calTable, CalendarNamespace.monthsOfYear[month - 1] + ' ' + year);
             var tableBody = quickElement('tbody', calTable);
 
-            // Draw days-of-week header
+          
             var tableRow = quickElement('tr', tableBody);
             for (var i = 0; i < 7; i++) {
                 quickElement('th', tableRow, CalendarNamespace.daysOfWeek[(i + CalendarNamespace.firstDayOfWeek) % 7]);
@@ -93,7 +83,7 @@ depends on core.js for utility functions like removeChildren or quickElement
 
             var nonDayCell;
 
-            // Draw blanks before first of month
+            
             tableRow = quickElement('tr', tableBody);
             for (i = 0; i < startingPos; i++) {
                 nonDayCell = quickElement('td', tableRow, ' ');
@@ -108,7 +98,6 @@ depends on core.js for utility functions like removeChildren or quickElement
                 return onClick;
             }
 
-            // Draw days of month
             var currentDay = 1;
             for (i = startingPos; currentDay <= days; i++) {
                 if (i % 7 === 0 && currentDay !== 1) {
@@ -120,7 +109,7 @@ depends on core.js for utility functions like removeChildren or quickElement
                     todayClass = '';
                 }
 
-                // use UTC function; see above for explanation.
+                
                 if (isSelectedMonth && currentDay === selected.getUTCDate()) {
                     if (todayClass !== '') {
                         todayClass += " ";
@@ -146,11 +135,6 @@ depends on core.js for utility functions like removeChildren or quickElement
 
     // Calendar -- A calendar instance
     function Calendar(div_id, callback, selected) {
-        // div_id (string) is the ID of the element in which the calendar will
-        //     be displayed
-        // callback (string) is the name of a JavaScript function that will be
-        //     called with the parameters (year, month, day) when a day in the
-        //     calendar is clicked
         this.div_id = div_id;
         this.callback = callback;
         this.today = new Date();

@@ -1,0 +1,163 @@
+<script>
+function initSummernote_{{ id_safe }}() {
+    {{ config.jquery }}(document).ready(function($) {
+{% if iframe %}
+        var frameId = window.frameElement.id;
+        var id = frameId.substring(0, frameId.length - 7);  // without `_frame`
+        var iframe = window.parent.document.getElementById(frameId);
+        var origin = window.parent.document.getElementById(id);
+        var csrftoken = '{{ csrf_token }}';
+        var settings = window.parent.settings_{{ id_safe }};
+        var $sn = $('#summernote');
+        $(iframe).height(settings.height);
+{% else %}
+        var origin = window.document.getElementById('{{ id }}');
+        var csrftoken = getCookie('{{ CSRF_COOKIE_NAME }}');
+        var settings = {{ settings|safe }};
+        var $sn = $(origin);
+{% endif %}
+        $sn.html(origin.value);
+        var $nEditor, $nCodable, $nImageInput;
+        $(origin).hide();
+
+        function recalcHeight(e) {
+            var nEditable = e.find('.note-editable');
+            var nEditor = $('.note-editor');
+            var height = parseInt(
+                parseInt(settings.height)  // default
+                - e.find('.note-toolbar').outerHeight()
+                - e.find('.note-status-output').outerHeight()
+                - e.find('.note-statusbar').outerHeight()
+                - (nEditor.outerHeight() - nEditor.innerHeight())  // editor's border
+            );
+            nEditable.outerHeight(height);
+        }
+        
+        var initEditor = function() {
+            $sn.summernote($.extend(settings, {
+{% if iframe %}
+                disableResizeEditor: true,
+{% endif %}
+                callbacks: {
+                    onInit: function() {
+                        $nEditor = $sn.next();
+                        $nCodable = $nEditor.find('.note-codable');
+                        recalcHeight($nEditor);
+
+{% if iframe %}
+                        // Resize again when the height of note-toolbar changed
+                        // This enhances calculation behaviors on Safari
+                        new ResizeSensor($nEditor.find('.note-toolbar'), function() {
+                            recalcHeight($nEditor);
+                        });
+                        // Add an event handler for fullscreen
+                        $nEditor.find('.btn-fullscreen').on('click', {editor: $nEditor}, function (e) {
+                            var $nEditor = e.data.editor;
+                            if ($nEditor.hasClass('fullscreen')) {
+                                $(iframe).addClass('note-fullscreen');
+                            } else {
+                                $(iframe).removeClass('note-fullscreen');
+                            }
+                        });
+{% else %}
+                        // Apply attributes with wrapper div
+                        var $wrap = $($nEditor).wrap(
+                            '<div class="summernote-div"></div>'
+                        ).parent();
+                        {% for k, v in attrs.items %}
+                        $wrap.attr('{{ k }}', '{{ v }}');
+                        {% endfor %}
+{% endif %}
+
+                        // Move dropdown dialog when it exceeds the bound of the editor
+                        $nEditor.find('.note-btn-group').on('shown.bs.dropdown', function () {
+                            var nDropdown = $(this).find(".dropdown-menu");
+                            var offset = nDropdown.offset();
+                            var width = nDropdown.width();
+
+                            var windowWidth = $(window).width();
+                            var margin = 15;
+
+                            if( offset.left + width + margin > windowWidth ) {
+                                var left = windowWidth - width - offset.left - margin;
+                                nDropdown.css("left", left + "px");
+                            }
+                        });
+                    },
+                    onBlur: function() {
+                        origin.value = $sn.summernote('code');
+                    },
+                    onBlurCodeview: function() {
+                        origin.value = $sn.summernote('code');
+                    },
+                    {% if not config.disable_attachment %}
+                    onImageUpload: function(files) {
+                        // custom attachment data
+                        var attachmentData = origin.dataset;
+                        $nImageInput = $nEditor.find('.note-image-input');
+                        $nImageInput.fileupload();
+                        var jqXHR = $nImageInput.fileupload('send', 
+                            {
+                                files: files,
+                                formData: $.extend({csrfmiddlewaretoken: csrftoken}, attachmentData),
+                                url: settings.url.upload_attachment,
+                            })
+                            .done(function (data, textStatus, jqXHR) {
+                                $.each(data.files, function (index, file) {
+                                    $sn.summernote("insertImage", file.url);
+                                });
+                            })
+                            .fail(function (jqXHR, textStatus, errorThrown) {
+                                // if the error message from the server has any text in it, show it
+                                var msg = jqXHR.responseJSON;
+                                if (msg && msg.message) {
+                                    alert(msg.message);
+                                }
+                                // otherwise, show something generic
+                                else {
+                                    alert('Got an error while uploading images.');
+                                }
+                            });
+                        // Summernote will replace ImageInput when next the dialog opens.
+                        // But we have to reset it to prevent additional uploading by form itself.
+                        $nImageInput.replaceWith($nImageInput.val('').clone(true));
+                    }
+                    {% endif %}
+                }
+            }));
+        };
+
+        // include summernote language pack, synchronously
+        $.ajax({url: settings.url.language, dataType: "script", complete: initEditor})
+
+        // For CodeMirror
+        $sn.on('summernote.codeview.toggled', function() {
+            var cmEditor = $nCodable.data('cmEditor');
+            if( cmEditor ) {
+                cmEditor.on('blur', function() {
+                    origin.value = cmEditor.getValue();
+                });
+            }
+        });
+
+{% if not iframe %}
+        // See https://docs.djangoproject.com/en/dev/ref/contrib/csrf/#ajax
+        function getCookie(name) {
+            var cookieValue = null;
+            if (document.cookie && document.cookie != '') {
+                var cookies = document.cookie.split(';');
+                for (var i = 0; i < cookies.length; i++) {
+                    var cookie = jQuery.trim(cookies[i]);
+                    // Does this cookie string begin with the name we want?
+                    if (cookie.substring(0, name.length + 1) == (name + '=')) {
+                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                        break;
+                    }
+                }
+            }
+            return cookieValue;
+        }
+{% endif %}
+    });
+}
+</script>

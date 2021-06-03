@@ -41,8 +41,7 @@
             },
             updateCounter = function() {
                 var sel = $(actionCheckboxes).filter(":checked").length;
-                // data-actions-icnt is defined in the generated HTML
-                // and contains the total amount of objects in the queryset
+                
                 var actions_icnt = $('.action-counter').data('actionsIcnt');
                 $(options.counterContainer).html(interpolate(
                     ngettext('%(sel)s of %(cnt)s selected', '%(sel)s of %(cnt)s selected', sel), {
