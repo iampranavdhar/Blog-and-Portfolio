@@ -33,9 +33,9 @@ INSTALLED_APPS = [
 ]
 
 CORS_ALLOWED_ORIGINS = [       
-    'http://localhost:3000',
+    'https://localhost:3000',
     'https://sushmanth.herokuapp.com',
-    'http://sushmanth.herokuapp.com'
+    'https://sushmanth.herokuapp.com'
 ]
 
 GRAPHENE = {
