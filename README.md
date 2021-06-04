@@ -56,7 +56,7 @@ Changes that need to be made for getting your data on the website are:
 ### Setup
 
 1. As done in the frontend part first clone the backend branch of the repo
-    > `git -b backend --single-branch <remote-repo-url>`
+    > `git clone -b backend --single-branch <remote-repo-url>`
 
 2. Create a virtual environment and Install the pip packages in the requiremets.txt
     > `pip install -r requirements.txt`
@@ -82,6 +82,7 @@ Changes that need to be made for getting your data on the website are:
 ## Author ✍️
 
 1. <img src="https://avatars.githubusercontent.com/u/73348574?v=4" alt='img' width='40px' height='40px' /> [Pranavdhar](https://www.Github.com/iampranavdhar)
+
 
 ## Note
 

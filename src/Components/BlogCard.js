@@ -1,7 +1,7 @@
 import React from 'react'
 import './BlogCard.css'
 
-function BlogCard({coverimage,category,title,descriptionpart,author}) {
+function BlogCard({coverimage,category,title,descriptionpart}) {
     return (
         <div className='body'>
                 <div className="blog-card">
