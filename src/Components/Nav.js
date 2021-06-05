@@ -12,19 +12,15 @@ function Nav({themeSetter,theme}) {
 
     const [menutoggle, setMenutoggle] = useState(false)
 
-    // For getting Close Menu Optn when clicked on Menu Options and
-    // for Menu Bar when it is active for getting out when clicked on it
     const Toggle = () =>{
         setMenutoggle(!menutoggle)
         console.log(menutoggle)
     }
 
-    // For closing the Sidebar when link clicked
     const closeMenu = () => {
         setMenutoggle(false)
     }
 
-    //Own idea for make the navbar work even at the blogpage
     const history = useHistory();
     const navigate = (url) => {
         history.push(`/${url}`);

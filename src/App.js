@@ -72,21 +72,12 @@ body{
 
 function App() {
 
-  //This historytheme Function is to find weather the person 
-  //is opened the the website in that Browser previously or not.
-  //If there is an item in storage named as theme then it takes 
-  //that theme else as it will become false that then it takes light.
-
   const historyTheme = () =>{
     const prevTheme = storage.getItem('theme')
     return prevTheme ? JSON.parse(prevTheme) : "light"
   }
   
   const [theme,setTheme] = useState(historyTheme);
-
-  //Here we are setting up the theme to the storage to store it for next visit.
-  //And this should run as soon as theme variable changes so that will update
-  //the storage. 
 
   useEffect(() => {
     storage.setItem('theme', JSON.stringify(theme));
@@ -102,11 +93,6 @@ function App() {
       <DarkTheme/>
     <Router>
     <div className="App">
-
-      {/* I had done the  dark theme by giving on click functionality 
-      in the Nav Component and giving it the function from here by props.
-      And theme prop is for giving it the giving that moon and moon and sun icons */}
-
       <Nav themeSetter={() =>{themeToggler()}} theme={theme}/>
         <Switch>
           <Route exact path='/'>
