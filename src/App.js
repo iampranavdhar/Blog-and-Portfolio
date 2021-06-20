@@ -74,7 +74,7 @@ function App() {
 
   const historyTheme = () =>{
     const prevTheme = storage.getItem('theme')
-    return prevTheme ? JSON.parse(prevTheme) : "light"
+    return prevTheme ? JSON.parse(prevTheme) : "dark"
   }
   
   const [theme,setTheme] = useState(historyTheme);
