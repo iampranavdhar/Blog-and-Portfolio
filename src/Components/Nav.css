@@ -33,7 +33,7 @@
 
 .nav-options a{
   text-decoration: none;
-  color: #0E2431;
+  color: rgb(8, 8, 8);
   margin-right: 20px;
 }
 
@@ -55,6 +55,7 @@
   align-items: center;
   justify-content: center;
 }
+
 .theme-toggle{
   cursor: pointer;
 }
@@ -114,10 +115,7 @@
     align-items: center;
     justify-content: center;
     padding: 10px 0px;
-  }
-
-  .nav-options a{
-    color: white;
+    color: #fff!important;
   }
 
   .mobile-nav{
