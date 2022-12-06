@@ -1,4 +1,4 @@
-.home{
+.home {
   max-width: 1024px;
   display: grid;
   grid-template-columns: 100%;
@@ -11,105 +11,111 @@
   margin-bottom: 110px;
 }
 
-.home-title{
+.home-title {
   font-size: 3.5rem;
   margin-bottom: 2.5rem;
   margin-left: 5px;
   margin-top: 50px;
 }
 
-.home-title span{
-  color:  #e04f62;
+.home-title span {
+  color: #e04f62;
 }
 
-.home-social-icon{
+.home-social-icon {
   width: max-content;
   margin-bottom: 1rem;
   font-size: 1.5rem;
-  color: #0E2431;
+  color: #0e2431;
 }
 
-.home-social-icon:hover{
-  color:  #e04f62;
+.home-social-icon:hover {
+  color: #e04f62;
   transition: all 0.5s ease;
 }
 
-.icon{
+.icon {
   transform: scale(1.75);
 }
 
-.home-img img{
-  max-width: 370px;
-  border-radius: 50%;
-  object-fit: fill;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.gif{
+.gif {
   margin-top: 60px;
   margin-left: auto;
   margin-right: auto;
 }
 
-@media screen and (max-width:768px) {
-  .home-social{
+@media screen and (max-width: 768px) {
+  .home-social {
     display: flex;
     justify-content: space-around;
     bottom: 18%;
   }
 
-  .home-data{
+  .home-data {
     display: flex;
     flex-direction: column;
     align-items: center;
   }
-  .home-img img{
-    max-width: 280px;
+  .home-img img {
+    width: 100%;
+    border-radius: 50%;
+    max-width: 280px !important;
+  }
+  .home-title {
+    font-size: 2rem!important;
   }
 }
 
-@media screen and (max-height:860px){
-  .home-title{
+@media screen and (max-height: 860px) {
+  .home-title {
     font-size: 2.8rem;
     margin-bottom: 2.5rem;
     margin-left: 5px;
     margin-top: 10px;
   }
-  .home-img img{
-    max-width: 200px;
+  .home-img img {
+    width: 100%;
+    border-radius: 50%;
+    max-width: 200px !important;
   }
 }
 
-
 /* Desktop View */
-@media screen and (min-width: 768px){
-  .home{
+@media screen and (min-width: 768px) {
+  .home {
     height: 100vh;
     margin-left: auto;
     margin-right: auto;
   }
-  
-  .home-data{
+
+  .home-data {
     align-self: flex-end;
     display: flex;
-    align-items:center ;
+    align-items: center;
     justify-content: space-between;
   }
 
-  .home-social{
+  .home-social {
     padding-top: 0;
     padding-bottom: 2.5rem;
     flex-direction: row;
     align-self: flex-end;
   }
 
-  .home-social-icon{
+  .home-social-icon {
     margin-bottom: 0;
     margin-right: 80px;
   }
 
-  .icon{
+  .icon {
     transform: scale(1.75);
+  }
+  .home-img img {
+    width: 100%;
+    max-width: 420px !important;
+    border-radius: 50%;
+    object-fit: fill;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
