@@ -2,15 +2,18 @@
 
 This repo is my Portfolio which is built using React, Django, and GraphQL.A Portfolio will provide a platform to showcase our blogs and the latest work that we had done
 
+<img width="1470" alt="image" src="https://user-images.githubusercontent.com/73348574/216510502-707feb94-9e6b-43d4-9517-95ce645a2b6a.png">
+
 If you want to understand this repo better and use it follow the steps mentioned below
 
 This repo has divided into two branches for making deployment in Heroku from Github
+
 1. [Frontend](#Frontend)
 2. [Backend](#Backend)
 
 The First step is to fork the repo and get it in your Github repositories and then clone the repo to your local environment.
 
-And then create Heroku apps for deploying so that you can add your URLs to the code by following the steps mentioned 
+And then create Heroku apps for deploying so that you can add your URLs to the code by following the steps mentioned
 
 ## Frontend ⚛️
 
@@ -19,13 +22,15 @@ And then create Heroku apps for deploying so that you can add your URLs to the c
 ### Setup
 
 1. First clone the Frontend branch from the repo
-    > `git clone -b frontend --single-branch <remote-repo-url>`
+
+   > `git clone -b frontend --single-branch <remote-repo-url>`
 
 2. Install all the npm packages
-    > `npm install`
+
+   > `npm install`
 
 3. Run the code
-    > `npm start`
+   > `npm start`
 
 ### Changes 📝
 
@@ -35,7 +40,7 @@ Changes that need to be made for getting your data on the website are:
 
 2. Change the title of the page in the index.html in the public folder with your name
 
-    **From Components:**
+   **From Components:**
 
 3. Change the about data in the About.js
 
@@ -44,10 +49,11 @@ Changes that need to be made for getting your data on the website are:
 5. For the stats of Github change the username in the URLs in Stats.js
 
 6. Change all the URLs with your respective ones in
-    - BlogPage.js [Cover image]
-    - Blogs.js [fetch URLs]
-    - Projects.js [fetch URLs]
-    - useFetch.js [fetch URLs]
+
+   - BlogPage.js [Cover image]
+   - Blogs.js [fetch URLs]
+   - Projects.js [fetch URLs]
+   - useFetch.js [fetch URLs]
 
 7. Then push it to the Github frontend branch of the forked repo
 
@@ -56,12 +62,14 @@ Changes that need to be made for getting your data on the website are:
 ### Setup
 
 1. As done in the frontend part first clone the backend branch of the repo
-    > `git clone -b backend --single-branch <remote-repo-url>`
+
+   > `git clone -b backend --single-branch <remote-repo-url>`
 
 2. Create a virtual environment and Install the pip packages in the requiremets.txt
-    > `pip install -r requirements.txt`
 
-    In case you are using version 3 use pip3
+   > `pip install -r requirements.txt`
+
+   In case you are using version 3 use pip3
 
 ### Changes 📝
 
@@ -77,12 +85,11 @@ Changes that need to be made for getting your data on the website are:
 
 1. Now finally add build-packs to the apps in Heroku and deploy the respective branches separately by connecting to the Github
 
-    > We can deploy it together as well but I have chosen to deploy separately.
+   > We can deploy it together as well but I have chosen to deploy separately.
 
 ## Author ✍️
 
 1. <img src="https://avatars.githubusercontent.com/u/73348574?v=4" alt='img' width='40px' height='40px' /> [Pranavdhar](https://www.Github.com/iampranavdhar)
-
 
 ## Note
 
